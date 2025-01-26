@@ -10,4 +10,7 @@ import { DatepickerComponent } from '../../../shared/features/datepicker/datepic
 })
 export default class InvoicesListComponent {
 
+  getDateRange(range: {startDate: string, endDate: string}){
+    console.log(range)
+  }
 }
