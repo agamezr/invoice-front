@@ -1,2 +1,41 @@
 
 <app-datepicker (dateRange)="getDateRange($event)" />
+
+@switch (invoicesState.state.status()) {
+    @case ("loading") {
+        <p>loading...</p>
+    }
+    @case ("error") {
+        <p>error</p>
+    }
+    @default {
+        @if (invoicesState.state().invoices.length > 0) {
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Id</th>
+                        <th scope="col">Invoice Number</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">Invoice Date</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (invoice of invoicesState.state().invoices; track invoice.id) {
+                        <tr>
+                            <th scope="row">{{ $index + 1 }}</th>
+                            <th>{{ invoice.id }}</th>
+                            <td>{{ invoice.invoice_number }}</td>
+                            <td>{{ invoice.total }}</td>
+                            <td>{{ invoice.invoice_date }}</td>
+                            <td>{{ invoice.status }}</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        } @else {
+            <p>No invoices found</p>
+        }
+    }
+}
