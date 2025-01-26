@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { DatepickerComponent } from '../../../shared/features/datepicker/datepicker.component';
 
 @Component({
   selector: 'app-invoices-list',
   standalone: true,
-  imports: [],
+  imports: [DatepickerComponent],
   templateUrl: './invoices-list.component.html',
   styleUrl: './invoices-list.component.css'
 })
