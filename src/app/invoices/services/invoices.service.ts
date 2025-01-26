@@ -6,6 +6,10 @@ import { environment } from "../../../environments/environment";
 
 interface InvoiceResponse {
     invoices: Invoice[];
+    page: number;
+    total_pages: number;
+    total_data: number;
+    per_page: number;
 }
 
 @Injectable({

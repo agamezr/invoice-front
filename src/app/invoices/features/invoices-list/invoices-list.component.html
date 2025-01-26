@@ -34,6 +34,26 @@
                     }
                 </tbody>
             </table>
+
+            <div class="d-flex justify-content-between p-2">
+                <ngb-pagination
+                    [collectionSize]="invoicesState.state().total_data"
+                    [(page)]="invoicesState.state().page"
+                    [pageSize]="invoicesState.state().per_page"
+                    (pageChange)="changePage($event)"
+                    [maxSize]="5"
+                    [boundaryLinks]="true"
+                >
+                </ngb-pagination>
+               
+                <select class="form-select" style="width: auto" name="pageSize" (change)="changePerPage($event)">
+                    <option [value]="10">10 invoices per page</option>
+                    <option [value]="20">20 invoices per page</option>
+                    <option [value]="30">30 invoices per page</option>
+                    <option [value]="40">40 invoices per page</option>
+                    <option [value]="50">50 invoices per page</option>
+                </select>
+            </div>
         } @else {
             <p>No invoices found</p>
         }
