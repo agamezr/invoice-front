@@ -1,8 +1,13 @@
-/* $orange-600 */
+
+.container-flex {
+    background-color: rgb(246, 242, 242);
+}
+
 
 .navbar {
     background-color: black;
     box-shadow: 0 0.5rem 1rem #fd974351;
+    z-index: 10;
 }
 
 .navbar-brand {
