@@ -79,6 +79,8 @@ export class InvoicesStateService {
     })
 
     updateDateRange(range: { startDate: string; endDate: string }) {
+        this.changePage$.next(this.default_page)
+        this.changePerPage$.next(this.default_per_page)
         this.dateRange$.next(range)
       }
 }
