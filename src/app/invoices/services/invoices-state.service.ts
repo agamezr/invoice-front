@@ -15,22 +15,26 @@ interface State {
 }
 
 @Injectable()
-export class InvoicesStateService{
+export class InvoicesStateService {
+    private default_per_page = 10 as const
+    private default_page = 1 as const
+    private defaullt_range = {
+        startDate: "2022-01-01",
+        endDate: "2022-01-15",
+    }
+
     private invoicesService = inject(InvoicesService)
 
     private initialState: State = {
         invoices: [],
         status: 'loading',
-        total_pages: 1,
-        total_data: 1,
-        page: 1,
-        per_page: 1
+        total_pages: this.default_page,
+        total_data: this.default_page,
+        page: this.default_page,
+        per_page: this.default_page
     }
 
-    private dateRange$ = new BehaviorSubject<{ startDate: string; endDate: string }>({
-        startDate: "2022-01-01",
-        endDate: "2022-12-31",
-    })
+    private dateRange$ = new BehaviorSubject<{ startDate: string; endDate: string }>(this.defaullt_range)
 
     changePage$ = new BehaviorSubject<number>(1);
     changePerPage$ = new BehaviorSubject<number>(10);
@@ -65,8 +69,8 @@ export class InvoicesStateService{
                     this.fetchInvoices(dateRange, this.changePage$.value, this.changePerPage$.value).pipe(
                         startWith({
                             status: 'loading' as const,
-                            current_page: 1,
-                            per_page: 10,
+                            current_page: this.default_page,
+                            per_page: this.default_per_page,
                         })
                     )
                 )
@@ -75,7 +79,6 @@ export class InvoicesStateService{
     })
 
     updateDateRange(range: { startDate: string; endDate: string }) {
-        this.dateRange$.next(range);
-        
+        this.dateRange$.next(range)
       }
 }
