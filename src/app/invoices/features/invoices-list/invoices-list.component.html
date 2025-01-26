@@ -1,5 +1,9 @@
 
-<app-datepicker (dateRange)="getDateRange($event)" />
+<div class="row">
+    <div class="col-12">
+        <app-datepicker (dateRange)="getDateRange($event)" />
+    </div>
+</div>
 
 @switch (invoicesState.state.status()) {
     @case ("loading") {

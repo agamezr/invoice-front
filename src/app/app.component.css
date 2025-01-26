@@ -1,0 +1,12 @@
+/* $orange-600 */
+
+.navbar {
+    background-color: #fd9843;
+    box-shadow: 0 0.5rem 1rem #fd97437c;
+}
+
+.navbar-brand {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: x-large;
+    color: #ffffff;
+}
