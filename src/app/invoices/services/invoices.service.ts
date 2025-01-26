@@ -17,14 +17,14 @@ export class InvoicesService {
     constructor(private http: HttpClient) { }
 
     getInvoices(
-        dateRange: { startDate: string, endDate: string }
+        dateRange: { startDate: string, endDate: string }, page: number, per_page: number
         ): Observable<InvoiceResponse> {
             const params = new HttpParams()
                 .set('start_date', dateRange.startDate)
-                .set('end_date', dateRange.endDate);
+                .set('end_date', dateRange.endDate)
+                .set('page', page.toString())
+                .set('per_page', per_page.toString());
 
-            return this.http.get<InvoiceResponse>(`${this.apiUrl}` , {params});
-            
+            return this.http.get<InvoiceResponse>(`${this.apiUrl}/invoices/range` , {params});
         }
-
 }
