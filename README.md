@@ -1,27 +1,29 @@
-# InvoiceFront
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.11.
+# Invoice APP
 
-## Development server
+This project is a billing APP developed with Angular. Below are the steps to set up and run the project on your local environment.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+---
 
-## Code scaffolding
+## Prerequisites
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Before you get started, make sure you have the following installed on your machine:
+- **[Angular CLI](https://github.com/angular/angular-cli)**: Versión `18.2.11`
+---
 
-## Build
+## Installation
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Follow these steps to set up your development environment:
 
-## Running unit tests
+### 1.  Install packages
+Run npm install inside the folder:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+npm install
+```
 
-## Running end-to-end tests
+### 2. Run APP
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```bash
+ng serve  // http://localhost:4200
+```
