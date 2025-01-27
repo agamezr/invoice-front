@@ -9,7 +9,7 @@
     <div class="col-12">
         @switch (invoicesState.state.status()) {
             @case ("loading") {
-                <p>loading...</p>
+                <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
             }
             @case ("error") {
                 <p>error</p>
