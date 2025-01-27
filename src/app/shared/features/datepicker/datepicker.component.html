@@ -1,4 +1,10 @@
-<ngb-datepicker #dp (dateSelect)="onDateSelection($event)" [displayMonths]="2" [dayTemplate]="t" outsideDays="hidden" />
+
+<ngb-datepicker #dp (dateSelect)="onDateSelection($event)"
+	[displayMonths]="2" 
+	[dayTemplate]="t" outsideDays="hidden"
+	[minDate]="{year: 2021, month: 1, day: 1}"
+	[startDate]="{year: 2022, month: 1}"
+	/>
 
 <ng-template #t let-date let-focused="focused">
 	<span
@@ -12,3 +18,4 @@
 		{{ date.day }}
 	</span>
 </ng-template>
+

@@ -10,14 +10,15 @@ import { JsonPipe } from '@angular/common';
   styleUrl: './datepicker.component.css'
 })
 export class DatepickerComponent {
-  @Output() dateRange = new EventEmitter<{startDate: string; endDate: string}>()
+  	@Output() dateRange = new EventEmitter<{startDate: string; endDate: string}>()
   
-  private startDate: string = '';
+	private startDate: string = '';
 	private endDate: string = '';
 	calendar = inject(NgbCalendar);
-  hoveredDate: NgbDate | null = null;
-	fromDate: NgbDate = this.calendar.getToday();
-	toDate: NgbDate | null = this.calendar.getNext(this.fromDate, 'd', 10);
+	hoveredDate: NgbDate | null = null;
+
+	fromDate = new NgbDate(2022, 1,1)
+	toDate: NgbDate | null = this.calendar.getNext(this.fromDate, 'd', 14);
 
 	onDateSelection(date: NgbDate) {
 		if (!this.fromDate && !this.toDate) {
