@@ -53,15 +53,16 @@
                         </ngb-pagination>
                     
                         <select class="form-select" style="width: auto" name="pageSize" (change)="changePerPage($event)">
-                            <option [value]="10">10 invoices per page</option>
-                            <option [value]="20">20 invoices per page</option>
-                            <option [value]="30">30 invoices per page</option>
-                            <option [value]="40">40 invoices per page</option>
-                            <option [value]="50">50 invoices per page</option>
+                            <option [value]="10">10 invoices</option>
+                            <option [value]="20">20 invoices</option>
+                            <option [value]="50">50 invoices</option>
+                            <option [value]="100">100 invoices</option>
                         </select>
                     </div>
                 } @else {
-                    <p>No invoices found</p>
+                    <h3>
+                        <p>No invoices found</p>
+                    </h3>
                 }
             }
         }
