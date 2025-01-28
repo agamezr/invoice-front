@@ -30,6 +30,10 @@
     box-shadow: 0 0.5rem 1rem black;
 }
 
-/* .container-datepicker{
-    background-color: red;
-} */
+:host ::ng-deep .ngb-dp-months {
+    flex-flow: row wrap;
+    justify-content: flex-start;
+}
+:host ::ng-deep .ngb-dp-month {
+    flex: 1 0 auto;
+}

@@ -5,8 +5,6 @@
     </div>
 </div>
 
-<div class="row">
-    <div class="col-12">
         @switch (invoicesState.state.status()) {
             @case ("loading") {
                 <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
@@ -16,49 +14,61 @@
             }
             @default {
                 @if (invoicesState.state().invoices.length > 0) {
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Id</th>
-                                <th scope="col">Invoice Number</th>
-                                <th scope="col">Total</th>
-                                <th scope="col">Invoice Date</th>
-                                <th scope="col">Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @for (invoice of invoicesState.state().invoices; track invoice.id) {
-                                <tr>
-                                    <th scope="row">{{ $index + 1 }}</th>
-                                    <th>{{ invoice.id }}</th>
-                                    <td>{{ invoice.invoice_number }}</td>
-                                    <td>{{ invoice.total }}</td>
-                                    <td>{{ invoice.invoice_date }}</td>
-                                    <td>{{ invoice.status }}</td>
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
+                    <div class="row">
+                        <div class="col-12">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Id</th>
+                                        <th scope="col">Invoice Number</th>
+                                        <th scope="col">Total</th>
+                                        <th scope="col">Invoice Date</th>
+                                        <th scope="col">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @for (invoice of invoicesState.state().invoices; track invoice.id) {
+                                        <tr>
+                                            <th scope="row">{{ $index + 1 }}</th>
+                                            <th>{{ invoice.id }}</th>
+                                            <td>{{ invoice.invoice_number }}</td>
+                                            <td>{{ invoice.total }}</td>
+                                            <td>{{ invoice.invoice_date }}</td>
+                                            <td>{{ invoice.status }}</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
 
-                    <div class="d-flex justify-content-between p-2">
-                        <ngb-pagination
-                            [collectionSize]="invoicesState.state().total_data"
-                            [(page)]="invoicesState.state().page"
-                            [pageSize]="invoicesState.state().per_page"
-                            (pageChange)="changePage($event)"
-                            [maxSize]="5"
-                            [boundaryLinks]="true"
-                        >
-                        </ngb-pagination>
                     
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12">
+                            <ngb-pagination
+                                [collectionSize]="invoicesState.state().total_data"
+                                [(page)]="invoicesState.state().page"
+                                [pageSize]="invoicesState.state().per_page"
+                                (pageChange)="changePage($event)"
+                                [maxSize]="5"
+                                [boundaryLinks]="true"
+                            >
+                            </ngb-pagination>
+                        </div>
+                    
+                    <div class="col-lg-6 col-md-12">
+                        <div class="d-flex justify-content-lg-end">
                         <select class="form-select" style="width: auto" name="pageSize" (change)="changePerPage($event)">
                             <option [value]="10">10 invoices</option>
                             <option [value]="20">20 invoices</option>
                             <option [value]="50">50 invoices</option>
                             <option [value]="100">100 invoices</option>
                         </select>
+                        </div>
                     </div>
+
+                </div>
                 } @else {
                     <h3>
                         <p>No invoices found</p>
@@ -66,5 +76,3 @@
                 }
             }
         }
-    </div>
-</div>
